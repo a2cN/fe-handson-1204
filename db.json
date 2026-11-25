@@ -1,0 +1,100 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "ミニマルデスクランプ",
+      "category": "照明",
+      "price": 5800,
+      "stock": 3,
+      "description": "ミニマルデスクランプの説明文です。"
+    },
+    {
+      "id": 2,
+      "name": "無線メカニカルキーボード",
+      "category": "周辺機器",
+      "price": 14800,
+      "stock": 10,
+      "description": "無線メカニカルキーボードの説明文です。"
+    },
+    {
+      "id": 3,
+      "name": "アルミ製ノートPCスタンド",
+      "category": "周辺機器",
+      "price": 4200,
+      "stock": 5,
+      "description": "アルミ製ノートPCスタンドの説明文です。"
+    },
+    {
+      "id": 4,
+      "name": "静音マウス",
+      "category": "周辺機器",
+      "price": 3300,
+      "stock": 12,
+      "description": "静音マウスの説明文です。"
+    },
+    {
+      "id": 5,
+      "name": "ウォールナット製モニター台",
+      "category": "デスク",
+      "price": 9800,
+      "stock": 7,
+      "description": "ウォールナット製モニター台の説明文です。"
+    },
+    {
+      "id": 6,
+      "name": "ケーブルオーガナイザー",
+      "category": "小物",
+      "price": 1400,
+      "stock": 14,
+      "description": "ケーブルオーガナイザーの説明文です。"
+    },
+    {
+      "id": 7,
+      "name": "遮音ヘッドホン",
+      "category": "オーディオ",
+      "price": 21800,
+      "stock": 9,
+      "description": "遮音ヘッドホンの説明文です。"
+    },
+    {
+      "id": 8,
+      "name": "USB-C ハブ 7in1",
+      "category": "周辺機器",
+      "price": 6400,
+      "stock": 4,
+      "description": "USB-C ハブ 7in1の説明文です。"
+    },
+    {
+      "id": 9,
+      "name": "タスクチェア",
+      "category": "家具",
+      "price": 38000,
+      "stock": 11,
+      "description": "タスクチェアの説明文です。"
+    },
+    {
+      "id": 10,
+      "name": "ブルーライトカットメガネ",
+      "category": "小物",
+      "price": 3900,
+      "stock": 6,
+      "description": "ブルーライトカットメガネの説明文です。"
+    },
+    {
+      "id": 11,
+      "name": "卓上スピーカー",
+      "category": "オーディオ",
+      "price": 12500,
+      "stock": 13,
+      "description": "卓上スピーカーの説明文です。"
+    },
+    {
+      "id": 12,
+      "name": "デスクマット",
+      "category": "デスク",
+      "price": 3600,
+      "stock": 8,
+      "description": "デスクマットの説明文です。"
+    }
+  ]
+}
