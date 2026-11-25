@@ -1,5 +1,6 @@
 // 解答例: ミッション2
 // ミッション1の解答に staleTime を足したもの。
+// 関数名は課題ファイル(src/mission/)と同じにしてある。写しても、そのまま動く。
 
 import { useQuery } from '@tanstack/react-query'
 import { fetchProducts } from '../api/products'
@@ -7,7 +8,7 @@ import { ErrorView } from '../components/ErrorView'
 import { LoadingView } from '../components/LoadingView'
 import { ProductList } from '../components/ProductList'
 
-export function Mission2ProductListPage() {
+export function ProductListPage() {
   const { data, isPending, isError, error } = useQuery({
     queryKey: ['products'],
     queryFn: fetchProducts,

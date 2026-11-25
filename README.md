@@ -1,8 +1,17 @@
 # TanStack Query ハンズオン
 
-商品一覧の画面を題材に、`fetch + useEffect` で書かれたデータ取得を、TanStack Query の `useQuery` に置き換えます。
+TanStack Query を使ったサーバー状態の管理(データの取得、キャッシュ、更新)を、手を動かして体験するハンズオンです。
 
-**問題文は [materials/missions.md](materials/missions.md) にあります。** 参加者向けの資料は `materials/` にまとめています。
+題材は、小さな商品ショップのアプリです。最初は `fetch + useEffect` で書かれているデータ取得を、課題を解きながら TanStack Query に置き換えていきます。API にはわざと遅延を入れてあり、リクエストの回数も画面に表示されるので、キャッシュの効果を目と数字で確かめられます。課題を解いたら「判定する」ボタンで正解を確かめ、バッジを集めていきます。
+
+## 資料
+
+ハンズオンの資料は `materials/` にまとめています。まずは問題文を開いてください。
+
+| 資料 | 内容 |
+|---|---|
+| [問題文](materials/missions.md) | 課題ごとの、今の状態、やること、ヒント、正解条件 |
+| [資料の目次](materials/README.md) | `materials/` にある資料の一覧(技術の解説も、今後ここに追加します) |
 
 ## 準備
 
@@ -20,19 +29,24 @@ npm run dev
 - 画面右側の欄に、**API リクエストの回数と履歴**が表示されます。
 - 商品データ(在庫など)は、`npm run dev` を起動するたびに初期状態に戻ります。
 
+## 課題一覧
+
+ミッション1・2のクリアを目指します。早く終わったかたは、発展1〜4に進んでください(1 → 4 の順がおすすめ)。
+
+| 課題 | 内容 | 編集するファイル | 画面 |
+|---|---|---|---|
+| **ミッション1** | 商品一覧の取得を `useQuery` に置き換える | `src/mission/ProductListPage.tsx` | http://localhost:5173/ |
+| **ミッション2** | `staleTime` で、一覧に戻ったときの再取得をなくす | `src/mission/ProductListPage.tsx` | http://localhost:5173/ |
+| 発展1 | 商品詳細の取得を `useQuery` に置き換える | `src/mission/ProductDetailPage.tsx` | 一覧から商品をクリック |
+| 発展2 | 検索条件を Query Key に含める | `src/mission/SearchPage.tsx` | http://localhost:5173/search |
+| 発展3 | TanStack Query Devtools でキャッシュを見る | `src/mission/DevtoolsSetup.tsx` | どの課題の画面でも |
+| 発展4 | `useMutation` と `invalidateQueries` で購入を反映する | `src/mission/PurchaseButton.tsx` | 商品詳細の「購入する」ボタン |
+
+課題の詳しい内容(今の状態、やること、ヒント、正解条件)は、[問題文](materials/missions.md)と、各ファイルの先頭の `★` 付きのコメントに書いてあります。どちらも同じ内容です。
+
 ## 編集するファイル
 
 **編集するのは `src/mission/` の中だけです。** ほかのファイルは触らなくて大丈夫です。
-
-| ファイル | 課題 | 画面 |
-|---|---|---|
-| `src/mission/ProductListPage.tsx` | **ミッション1・2**(必須) | http://localhost:5173/ |
-| `src/mission/ProductDetailPage.tsx` | 発展1: 商品詳細を `useQuery` に置き換える | 一覧から商品をクリック |
-| `src/mission/SearchPage.tsx` | 発展2: 検索条件を Query Key に含める | http://localhost:5173/search |
-| `src/mission/DevtoolsSetup.tsx` | 発展3: TanStack Query Devtools を使う | どの課題ページでも |
-| `src/mission/PurchaseButton.tsx` | 発展4: `useMutation` と `invalidateQueries` | 商品詳細の「購入する」ボタン |
-
-各ファイルの先頭に、`★` 付きの説明(今の状態、やること、ヒント、**正解条件**)があります。内容は[問題文](materials/missions.md)と同じです。
 
 ## 正解の判定
 
@@ -45,17 +59,17 @@ npm run dev
 
 各課題の正解条件は、[問題文](materials/missions.md)に書いてあります。
 
-発展課題は、1 → 4 の順に進めるのがおすすめです。発展4は、一覧と詳細が `useQuery` になっていることが前提です。
+## ディレクトリ構成
 
 ```
 src/
-├── mission/        ← ★ 参加者が編集するのはここだけ
+├── mission/        ← ★ 編集するのはここだけ
 ├── api/            データ取得の関数(fetchProducts など)。読むだけ
 ├── components/     見た目の部品。触らなくてよい
 ├── answers/        解答例。まずは自分で解いてから見る
 ├── judge/          正解の判定とバッジ。触らなくてよい
 └── ...
-materials/          参加者向けの資料(問題文、技術の解説)
+materials/          ハンズオンの資料(問題文、技術の解説)
 docs/               講座の企画、講師向けの資料
 ```
 

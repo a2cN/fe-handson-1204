@@ -1,8 +1,9 @@
 import { useState, useSyncExternalStore } from 'react'
 import { badgeStore } from './badges'
+import { CurrentMission } from './CurrentMission'
 import { missions, type Mission } from './missions'
 
-// バッジの列と「判定する」ボタン(参加者は触らなくてよい)。
+// バッジの列と「判定する」ボタン(編集しなくてよい)。
 // 判定の結果(条件のチェックリスト)は、ボタンを押したときだけ表示する。
 
 type Result = {
@@ -16,6 +17,11 @@ export function JudgePanel() {
   const [results, setResults] = useState<Result[] | null>(null)
   const [newlyCleared, setNewlyCleared] = useState<string[]>([])
   const [animating, setAnimating] = useState<string[]>([])
+  // バッジを押して選んだ課題。未選択なら、まだクリアしていない最初の課題を「今やること」にする
+  const [selectedId, setSelectedId] = useState<string | null>(null)
+
+  const firstUncleared = missions.find((m) => !earned.includes(m.id)) ?? null
+  const current = missions.find((m) => m.id === selectedId) ?? firstUncleared
 
   const judge = () => {
     const next = missions.map((mission) => {
@@ -31,8 +37,9 @@ export function JudgePanel() {
   }
 
   const close = () => {
-    // 閉じたときに、新しく獲得したバッジの ✅ を動かす
+    // 閉じたときに、新しく獲得したバッジの ✅ を動かし、「今やること」を次の課題に進める
     setAnimating(newlyCleared)
+    setSelectedId(null)
     setResults(null)
   }
 
@@ -41,11 +48,24 @@ export function JudgePanel() {
 
   return (
     <section className="judge-panel" aria-label="判定">
-      <ul className="badges">
+      <CurrentMission
+        mission={current}
+        index={current ? missions.indexOf(current) : missions.length}
+        total={missions.length}
+        isCleared={current ? earned.includes(current.id) : true}
+      />
+
+      <ul className="badges" aria-label="バッジ(押すと、その課題を表示)">
         {missions.map((m) => {
           const got = earned.includes(m.id)
           return (
-            <li key={m.id} className={`badge ${got ? 'badge-earned' : ''}`} title={m.title}>
+            <li key={m.id}>
+              <button
+                type="button"
+                className={`badge ${got ? 'badge-earned' : ''} ${current?.id === m.id ? 'badge-current' : ''}`}
+                title={m.title}
+                onClick={() => setSelectedId(m.id)}
+              >
               <span className="badge-label">{m.badge}</span>
               {got && (
                 <span
@@ -55,6 +75,7 @@ export function JudgePanel() {
                   ✅
                 </span>
               )}
+              </button>
             </li>
           )
         })}

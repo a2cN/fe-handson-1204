@@ -1,4 +1,5 @@
 // 解答例: 発展課題「useMutation と invalidateQueries」
+// 関数名は課題ファイル(src/mission/)と同じにしてある。写しても、そのまま動く。
 
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { purchaseProduct, type Product } from '../api/products'
@@ -8,7 +9,7 @@ type Props = {
   product: Product
 }
 
-export function AnswerPurchaseButton({ product }: Props) {
+export function PurchaseButton({ product }: Props) {
   const queryClient = useQueryClient()
 
   const mutation = useMutation({

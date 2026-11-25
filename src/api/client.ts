@@ -83,7 +83,7 @@ export async function apiFetch<T>(path: string, options: ApiFetchOptions = {}): 
   }
 }
 
-// ---- 画面のリクエストパネル用(参加者は触らなくてよい) ----
+// ---- 画面のリクエストパネル用(編集しなくてよい) ----
 
 export const apiStore = {
   subscribe(listener: () => void) {

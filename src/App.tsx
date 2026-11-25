@@ -1,9 +1,9 @@
 import { Link, Route, Routes } from 'react-router'
-import { AnswerProductDetailPage } from './answers/AnswerProductDetailPage'
+import { ProductDetailPage as AnswerProductDetailPage } from './answers/AnswerProductDetailPage'
 import { AnswerScope } from './answers/AnswerScope'
-import { AnswerSearchPage } from './answers/AnswerSearchPage'
-import { Mission1ProductListPage } from './answers/Mission1ProductListPage'
-import { Mission2ProductListPage } from './answers/Mission2ProductListPage'
+import { SearchPage as AnswerSearchPage } from './answers/AnswerSearchPage'
+import { ProductListPage as Mission1ProductListPage } from './answers/Mission1ProductListPage'
+import { ProductListPage as Mission2ProductListPage } from './answers/Mission2ProductListPage'
 import {
   advancedQueryClient,
   mission1QueryClient,
@@ -27,7 +27,7 @@ export default function App() {
       </header>
       <main className="main">
         <Routes>
-          {/* 参加者が編集するページ(src/mission/) */}
+          {/* 課題のページ(src/mission/ を編集する) */}
           <Route element={<MissionScope />}>
             <Route path="/" element={<ProductListPage />} />
             <Route path="/products/:id" element={<ProductDetailPage />} />

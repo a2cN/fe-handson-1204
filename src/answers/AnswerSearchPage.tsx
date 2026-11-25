@@ -1,4 +1,5 @@
 // 解答例: 発展課題「検索条件を Query Key に含める」
+// 関数名は課題ファイル(src/mission/)と同じにしてある。写しても、そのまま動く。
 
 import { useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
@@ -8,7 +9,7 @@ import { LoadingView } from '../components/LoadingView'
 import { ProductList } from '../components/ProductList'
 import { SearchForm } from '../components/SearchForm'
 
-export function AnswerSearchPage() {
+export function SearchPage() {
   const [keyword, setKeyword] = useState('')
 
   const { data, isPending, isError, error } = useQuery({

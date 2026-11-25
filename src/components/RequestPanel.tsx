@@ -1,7 +1,7 @@
 import { useSyncExternalStore } from 'react'
 import { API_DELAY_MS, apiStore } from '../api/client'
 
-// API リクエストの回数と履歴を表示するパネル(参加者は触らなくてよい)。
+// API リクエストの回数と履歴を表示するパネル(編集しなくてよい)。
 
 const statusLabel = {
   pending: '通信中',

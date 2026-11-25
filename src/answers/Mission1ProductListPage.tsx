@@ -1,5 +1,6 @@
 // 解答例: ミッション1
 // fetch + useEffect を useQuery に置き換えたもの。
+// 関数名は課題ファイル(src/mission/)と同じにしてある。写しても、そのまま動く。
 
 import { useQuery } from '@tanstack/react-query'
 import { fetchProducts } from '../api/products'
@@ -7,7 +8,7 @@ import { ErrorView } from '../components/ErrorView'
 import { LoadingView } from '../components/LoadingView'
 import { ProductList } from '../components/ProductList'
 
-export function Mission1ProductListPage() {
+export function ProductListPage() {
   const { data, isPending, isError, error } = useQuery({
     // queryKey: キャッシュの名前。同じキーなら同じキャッシュを使う
     queryKey: ['products'],
